@@ -5,10 +5,10 @@
 ├── docs
 ├── TweakDefs/
 │   └── Unique TweakDef Name/
+│       ├── _tweakdef.lua
 │       ├── base64.txt
-│       ├── tweakdef.lua
-│       ├── README.md
 │       └── CHANGELOG.md
+│       ├── README.md
 ├── Beyond-All-Reason
 ├── recoil-lua-library
 └── README.md
