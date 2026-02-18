@@ -7,10 +7,44 @@
 │       ├── base64.txt
 │       ├── tweakdef.lua
 │       ├── README.md
-│       └── CHANGELOG.md/
-│           └── Refer to https://gitlab.com/gitlab-org/gitlab-foss/~/blob/master/doc/development/changelog.md for automation baseline
+│       └── CHANGELOG.md
 ├── Beyond-All-Reason
 ├── recoil-lua-library
 └── README.md
 
 Made using https://tree.nathanfriend.com/
+
+# CHANGELOG.md structure
+```md
+## V.V.V (YYYY-mm-dd)
+
+- etc.
+- etc.
+- etc.
+
+### Subsection
+
+- etc.
+- etc.
+- etc.
+
+### Subsection
+
+- etc.
+- etc.
+- etc.
+
+## V.V.V (YYYY-mm-dd)
+
+### Subsection
+
+- etc.
+- etc.
+- etc.
+
+### Subsection
+
+- etc.
+- etc.
+- etc.
+```
