@@ -1,4 +1,5 @@
 # Project Folder Structure
+```Made using https://tree.nathanfriend.com/
 .
 ├── .vscode
 ├── docs
@@ -11,8 +12,7 @@
 ├── Beyond-All-Reason
 ├── recoil-lua-library
 └── README.md
-
-Made using https://tree.nathanfriend.com/
+```
 
 # CHANGELOG.md structure
 ```md
