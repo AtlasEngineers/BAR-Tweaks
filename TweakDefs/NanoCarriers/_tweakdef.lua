@@ -1,4 +1,4 @@
---Nano Carriers v1.0
+--Nano Carriers v1.1
 local UnitDefs = UnitDefs or {}
 local function modname(i,n) return "nanocarrier_"..i.."_"..n end
 local droneName, metalCost, energyCost = "assistdrone",58,2900
@@ -11,16 +11,37 @@ local faction = {
 }
 for k in pairs(faction) do
 	newUnits[k..droneName] = {function(origDef)
-		return {table.merge(origDef, {
-			--builder = false,
-			canassist = false,
-			hoverattack = true,
-			repairable = false,
-			usesmoothmesh = 0,
-			customparams = {
-				drone = 1,
-			},
-		})}
+		local output = {
+			table.merge(origDef, { --Repair
+				--builder = false,
+				canassist = false,
+				hoverattack = true,
+				repairable = false,
+				canRepair = true,
+				canReclaim = false,
+				canRessurect = false,
+				canCapture = false,
+				usesmoothmesh = 0,
+				customparams = {
+					drone = 1,
+				},
+			}),
+			table.merge(origDef, { --Reclaim
+				--builder = false,
+				canassist = false,
+				hoverattack = true,
+				repairable = false,
+				canRepair = false,
+				canReclaim = true,
+				canRessurect = false,
+				canCapture = false,
+				usesmoothmesh = 0,
+				customparams = {
+					drone = 1,
+				},
+			})
+		}
+		return output
 	end}
 end
 local shipList, hoverList = {
@@ -49,7 +70,7 @@ end
 local function createwepdefs(fact,type)
 	return {
 		customparams = {
-			carried_unit = modname(1,fact..droneName),
+			carried_unit = modname(type == "nano" and 1 or 2,fact..droneName),
 			dronetype = type,
 			decayrate = 0,
 			deathdecayrate = 0,
@@ -78,7 +99,12 @@ for name,def in pairs(UnitDefs) do
 			for i,t in ipairs({{"nano","Repair"},{"default","Reclaim"}}) do
 				local wepdefs = {}
 				for n in pairs(wepdefnames) do
-					wepdefs[n] = createwepdefs(fact,t[1])
+					local olddef,newdef = wepdefs[n], createwepdefs(fact,t[1])
+					local oldcustom = olddef.customparams
+					if olddef.customparams then
+						newdef = table.merge(olddef.customparams, newdef.customparams)
+					end
+					wepdefs[n] = newdef
 				end
 				output[i] = table.merge(origDef, {
 					builder = false,
