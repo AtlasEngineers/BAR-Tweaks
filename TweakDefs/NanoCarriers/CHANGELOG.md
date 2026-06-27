@@ -1,3 +1,7 @@
+## 1.1 (2026-06-16)
+
+- Updated custom units to use more of the default options from their original counterparts
+
 ## 1 (2026-02-24)
 
 - Added Reclaim variants (Untested)
